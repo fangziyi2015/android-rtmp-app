@@ -8,8 +8,10 @@ add_subdirectory(librtmp)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -L${CMAKE_SOURCE_DIR}/libx264/libs/${CMAKE_ANDROID_ARCH_ABI}")
 
+file(GLOB src_file *.cpp)
+
 add_library(${CMAKE_PROJECT_NAME} SHARED
-        native-lib.cpp)
+        ${src_file})
 
 target_link_libraries(${CMAKE_PROJECT_NAME}
         android
